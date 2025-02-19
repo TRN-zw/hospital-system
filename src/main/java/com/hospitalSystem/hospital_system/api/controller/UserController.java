@@ -20,14 +20,14 @@ public class UserController {
        return ResponseEntity.ok(response);
     }
 
-    @RequestMapping("viewUsers")
+    @RequestMapping("/viewUsers")
     @GetMapping()
     public List<User> getAllUsers(){
         List<User> usersList = userRepository.findAll();
         return usersList;
     }
 
-    @RequestMapping("getUserById/{id}")
+    @RequestMapping("/getUserById/{id}")
     @GetMapping()
     public User getUserById(@PathVariable Long id){
         User userById = userRepository.findById(id).orElse(null);
