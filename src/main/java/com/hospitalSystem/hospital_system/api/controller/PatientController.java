@@ -13,7 +13,7 @@ public class PatientController {
     @Autowired
     PatientRepository patientRepository;
 
-    @RequestMapping("/addpatient")
+    @RequestMapping("/addPatient")
     @PostMapping()
     public ResponseEntity<PatientDetails> addPatient(@RequestBody PatientDetails patientDetails) {
         PatientDetails patientResponse = patientRepository.save(patientDetails);
@@ -27,7 +27,7 @@ public class PatientController {
         return patientList;
     }
 
-    @RequestMapping("/viewUsers")
+    @RequestMapping("/viewPatient/{id}")
     @GetMapping()
     public PatientDetails getPatientDetailsById(@PathVariable Long id) {
         PatientDetails patientDetsById = patientRepository.findById(id).orElse(null);

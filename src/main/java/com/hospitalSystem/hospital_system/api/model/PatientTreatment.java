@@ -11,14 +11,14 @@ import java.time.LocalDateTime;
 public class PatientTreatment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long treatmentId;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
+    @JoinColumn(name = "patientId", nullable = false)
     private PatientDetails patient;
 
     @Column(nullable = false)
-    private LocalDateTime treatmentDate;
+    private String treatmentDate;
 
     @Column(nullable = false)
     private String description;
