@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please Sign Up</title>
+
+    <link th:href="@{/default-ui.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="content">
+    <form class="login-form" th:method="post" th:object="${user}" th:action="@{/register}">
+        <h2>Please Sign Up</h2>
+
+        <div th:if="${success}" class="alert alert-success">
+            <p th:text="${success}"></p>
+        </div>
+
+        <p>
+            <input type="text" id="firstName" th:field="*{firstname}" placeholder="Enter your first name" required autofocus>
+        </p>
+
+        <p>
+            <input type="text" id="lastName" th:field="*{lastname}" placeholder="Enter your last name" required>
+        </p>
+
+        <p>
+            <input type="text" id="username" th:field="*{username}" placeholder="Choose a username" required>
+        </p>
+
+        <p>
+            <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" style="height: auto; width: 100%; font-size: 1rem; padding: .5rem; box-sizing: border-box" required>
+        </p>
+
+        <p>
+            <input type="password" id="password" th:field="*{password}" placeholder="Enter your password" required>
+        </p>
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <button type="submit" class="primary">Register</button>
+    </form>
+</div>
+</body>
+</html>
